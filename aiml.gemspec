@@ -3,14 +3,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "aiml/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "aiml"
+  spec.name          = "xaiml-ruby"
   spec.version       = AIML::VERSION
   spec.authors       = ["Koji Yamazaki"]
   spec.email         = ["kouji.yamazaki.cv@nttdocomo.com"]
 
-  spec.summary       = "AIML parser lib for ruby."
-  spec.description   = "AIML parser lib for ruby."
-  spec.homepage      = ""
+  spec.summary       = "xAIML parser library for ruby."
+  spec.description   = "xAIML parser library for ruby."
+  spec.homepage      = "https://docs.xaiml.docomo-dialog.com/"
 
   spec.files         = `git ls-files -z`.split("\x0").reject {|f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
