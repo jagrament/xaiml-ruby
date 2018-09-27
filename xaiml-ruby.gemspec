@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "xaiml/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "xaiml-ruby"
+  spec.name          = "xaiml"
   spec.version       = XAIML::VERSION
   spec.authors       = ["Koji Yamazaki"]
   spec.email         = ["kouji.yamazaki.cv@nttdocomo.com"]
