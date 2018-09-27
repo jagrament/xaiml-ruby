@@ -1,3 +1,3 @@
-module Aiml
-  VERSION = "0.1.0"
+module AIML
+  VERSION = "0.1.0".freeze
 end

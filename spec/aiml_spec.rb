@@ -1,11 +1,23 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe Aiml do
-  it 'has a version number' do
-    expect(Aiml::VERSION).not_to be nil
+describe AIML do
+  it "has a version number" do
+    expect(AIML::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  it "Successfully loading AIML" do
+    expect(AIML).not_to be nil
+  end
+
+  it "Successfully loading AIML:Document" do
+    expect(AIML::Document).not_to be nil
+  end
+
+  it "Successfully loading AIML::Element" do
+    expect(AIML::Element).not_to be nil
+  end
+
+  it "Successfully loading AIML::Element::Base" do
+    expect(AIML::Element::Base).not_to be nil
   end
 end

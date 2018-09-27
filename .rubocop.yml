@@ -1,0 +1,21 @@
+# Modify the version if you don't use MRI 2.1.
+inherit_gem:
+  onkcop:
+    - "config/rubocop.yml"
+    - "config/rails.yml"
+    - "config/rspec.yml"
+AllCops:
+  TargetRubyVersion: 2.5
+  # If you use RuboCop with Ruby on Rails, specify TargetRailsVersion(default: 5.0).
+  TargetRailsVersion: 5.1
+Rails:
+  # If you use RuboCop with Ruby on Rails, turn on this option.
+  Enabled: true
+Naming/FileName:
+  Exclude:
+    - "Gemfile"
+    - "Rakefile"
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+Rails/SaveBang:
+  Enabled: false
