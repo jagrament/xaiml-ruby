@@ -1,6 +1,6 @@
-module AIML
+module XAIML
   module Element
-    class Base < AIML::Document
+    class Base < XAIML::Document
       attr_accessor :element
 
       def initialize(attributes = {}, object = nil)

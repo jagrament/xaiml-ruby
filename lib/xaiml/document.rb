@@ -1,4 +1,4 @@
-module AIML
+module XAIML
   class Document
     attr_accessor :document
     attr_accessor :element
@@ -17,7 +17,7 @@ module AIML
       aiml[:xmlns] = "http://www.nttdocomo.com/aiml/schema"
       aiml[:'xmlns:html'] = "http://www.w3.org/1999/xhtml"
       aiml[:'xmlns:xsi'] = "http://www.w3.org/2001/XMLSchema-instance"
-      aiml[:'xsi:schemaLocation'] = "http://www.nttdocomo.com/aiml/schema/AIML.xsd"
+      aiml[:'xsi:schemaLocation'] = "http://www.nttdocomo.com/aiml/schema/XAIML.xsd"
       @document << aiml
       @element = aiml
     end
@@ -51,7 +51,7 @@ module AIML
       return true unless ao
 
       ao.any? do |item|
-        item = AIML.const_get(item) if item.is_a?(String)
+        item = XAIML.const_get(item) if item.is_a?(String)
         object.is_a?(item)
       end
     end
@@ -63,14 +63,14 @@ module AIML
     private
 
       def append(object)
-        raise AIML::DocumentError, "Appended object must be element which Category or Topic" unless allowed_object?(object)
+        raise XAIML::DocumentError, "Appended object must be element which Category or Topic" unless allowed_object?(object)
 
         object = object.element if object.respond_to?(:element)
         @element << object
       end
 
       def unshift(object)
-        raise AIML::DocumentError, "Prepend object must be element which Category or Topic" unless allowed_object?(object)
+        raise XAIML::DocumentError, "Prepend object must be element which Category or Topic" unless allowed_object?(object)
 
         object = object.element if object.respond_to?(:element)
         @element.prepend_child(object)

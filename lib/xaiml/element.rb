@@ -1,6 +1,6 @@
-module AIML
+module XAIML
   module Element
-    autoload :Base, "aiml/element/base"
+    autoload :Base, "xaiml/element/base"
     class Arg       < Base; end
     class Calc      < Base; end
     class Command   < Base; end
@@ -19,10 +19,10 @@ module AIML
     class Think     < Base; end
     class Value     < Base; end
 
-    autoload :Category, "aiml/element/category"
-    autoload :Condition, "aiml/element/condition"
-    autoload :ConditionalRandom, "aiml/element/conditional_random"
-    autoload :Ext, "aiml/element/ext"
-    autoload :Topic, "aiml/element/topic"
+    autoload :Category, "xaiml/element/category"
+    autoload :Condition, "xaiml/element/condition"
+    autoload :ConditionalRandom, "xaiml/element/conditional_random"
+    autoload :Ext, "xaiml/element/ext"
+    autoload :Topic, "xaiml/element/topic"
   end
 end
