@@ -5,8 +5,8 @@ require "xaiml/version"
 Gem::Specification.new do |spec|
   spec.name          = "xaiml"
   spec.version       = XAIML::VERSION
-  spec.authors       = ["Koji Yamazaki"]
-  spec.email         = ["kouji.yamazaki.cv@nttdocomo.com"]
+  spec.authors       = ["jagrament"]
+  spec.email         = ["t10933ky@gmail.com"]
 
   spec.summary       = "xAIML parser library for ruby."
   spec.description   = "xAIML parser library for ruby."
