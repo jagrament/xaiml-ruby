@@ -2,7 +2,7 @@ require "xaiml/version"
 require "xaiml/exceptions"
 require "ox"
 
-module XXAIML
+module XAIML
   require "xaiml/document"
   require "xaiml/element"
   require "xaiml/exceptions"
