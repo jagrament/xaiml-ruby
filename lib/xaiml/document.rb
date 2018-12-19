@@ -47,10 +47,10 @@ module XAIML
     end
 
     def allowed_object?(object)
-      ao = self.class.allowed_object
-      return true unless ao
+      allowed_object = self.class.allowed_object
+      return true if !allowed_object || (object.is_a?(String) && object.empty?)
 
-      ao.any? do |item|
+      allowed_object.any? do |item|
         item = XAIML.const_get(item) if item.is_a?(String)
         object.is_a?(item)
       end
