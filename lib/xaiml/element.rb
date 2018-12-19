@@ -16,6 +16,7 @@ module XAIML
     class Sraix     < Base; end
     class Star      < Base; end
     class Template  < Base; end
+    class That      < Base; end
     class Think     < Base; end
     class Value     < Base; end
 
