@@ -7,6 +7,7 @@ module XAIML
     class Get       < Base; end
     class Loop      < Base; end
     class Li        < Base; end
+    class Matcher   < Base; end
     class Map       < Base; end
     class Name      < Base; end
     class Pattern   < Base; end
