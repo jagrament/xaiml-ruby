@@ -19,6 +19,8 @@ module XAIML
     class That      < Base; end
     class Think     < Base; end
     class Value     < Base; end
+    class Ub        < Base; end
+    class Ut        < Base; end
 
     autoload :Category, "xaiml/element/category"
     autoload :Condition, "xaiml/element/condition"
