@@ -7,4 +7,11 @@ module XAIML
   require "xaiml/element"
   require "xaiml/exceptions"
   require "xaiml/version"
+
+  Ox.default_options = {
+      indent: -1,
+      mode:   :generic,
+      effort: :tolerant,
+      smart:  true
+  }
 end
