@@ -6,6 +6,7 @@ module XAIML
     class Command   < Base; end
     class Get       < Base; end
     class Loop      < Base; end
+    class Log       < Base; end
     class Li        < Base; end
     class Matcher   < Base; end
     class Map       < Base; end
