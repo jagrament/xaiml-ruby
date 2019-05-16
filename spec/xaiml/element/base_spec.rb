@@ -17,7 +17,7 @@ RSpec.describe XAIML::Element::Base do
 
     it "write" do
       base = XAIML::Element::Base.new
-      expect(base.write).to eq "\n<base/>\n"
+      expect(base.write).to eq "<base/>"
     end
   end
 end
