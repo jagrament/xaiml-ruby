@@ -1,7 +1,9 @@
 module XAIML
   module Element
     class Topic < Base
-      @allowed_object = [XAIML::Element::Category]
+      def self.allowed_object
+        [XAIML::Element::Category]
+      end
     end
   end
 end
