@@ -9,7 +9,7 @@ RSpec.describe XAIML::Document do
         aiml[:xmlns] = "http://www.nttdocomo.com/aiml/schema"
         aiml[:'xmlns:html'] = "http://www.w3.org/1999/xhtml"
         aiml[:'xmlns:xsi'] = "http://www.w3.org/2001/XMLSchema-instance"
-        aiml[:'xsi:schemaLocation'] = "http://www.nttdocomo.com/aiml/schema/XAIML.xsd"
+        aiml[:'xsi:schemaLocation'] = "http://www.nttdocomo.com/aiml/schema/AIML.xsd"
         expect(XAIML::Document.new.document.aiml).to eq aiml
       end
     end
