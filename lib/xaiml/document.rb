@@ -5,11 +5,9 @@ module XAIML
     attr_accessor :document
     attr_accessor :element
 
-    class << self
-      attr_reader :allowed_object
+    def self.allowed_object
+      ["Element::Topic", "Element::Category"]
     end
-
-    @allowed_object = ["Element::Topic", "Element::Category"]
 
     def initialize
       @document = Ox::Document.new(version: "1.0", encoding: "UTF-8")

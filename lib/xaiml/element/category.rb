@@ -3,7 +3,10 @@
 module XAIML
   module Element
     class Category < Base
-      @allowed_object = [XAIML::Element::Pattern, XAIML::Element::Template, XAIML::Element::That]
+      def self.allowed_object
+        [XAIML::Element::Pattern, XAIML::Element::Template, XAIML::Element::That]
+      end
+
       def initialize(attributes = {}, patterns = nil, template = nil)
         super(attributes)
         append_child patterns if patterns

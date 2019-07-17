@@ -18,3 +18,8 @@ Metrics/LineLength:
   Enabled: false
 Metrics/BlockLength:
   Enabled: false
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+  

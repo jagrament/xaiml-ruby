@@ -14,6 +14,6 @@ module XAIML
     indent: -1,
     mode: :generic,
     effort: :tolerant,
-    smart: true
+    smart: true,
   }
 end
