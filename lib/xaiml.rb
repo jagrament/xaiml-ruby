@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require 'xaiml/version'
-require 'xaiml/exceptions'
-require 'ox'
+require "xaiml/version"
+require "xaiml/exceptions"
+require "ox"
 
 module XAIML
-  require 'xaiml/document'
-  require 'xaiml/element'
-  require 'xaiml/exceptions'
-  require 'xaiml/version'
+  require "xaiml/document"
+  require "xaiml/element"
+  require "xaiml/exceptions"
+  require "xaiml/version"
 
   Ox.default_options = {
     indent: -1,

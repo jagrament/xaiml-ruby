@@ -9,17 +9,17 @@ module XAIML
       attr_reader :allowed_object
     end
 
-    @allowed_object = ['Element::Topic', 'Element::Category']
+    @allowed_object = ["Element::Topic", "Element::Category"]
 
     def initialize
-      @document = Ox::Document.new(version: '1.0', encoding: 'UTF-8')
+      @document = Ox::Document.new(version: "1.0", encoding: "UTF-8")
 
-      aiml = Ox::Element.new('aiml')
-      aiml[:version] = '2.0.0'
-      aiml[:xmlns] = 'http://www.nttdocomo.com/aiml/schema'
-      aiml[:'xmlns:html'] = 'http://www.w3.org/1999/xhtml'
-      aiml[:'xmlns:xsi'] = 'http://www.w3.org/2001/XMLSchema-instance'
-      aiml[:'xsi:schemaLocation'] = 'http://www.nttdocomo.com/aiml/schema/AIML.xsd'
+      aiml = Ox::Element.new("aiml")
+      aiml[:version] = "2.0.0"
+      aiml[:xmlns] = "http://www.nttdocomo.com/aiml/schema"
+      aiml[:'xmlns:html'] = "http://www.w3.org/1999/xhtml"
+      aiml[:'xmlns:xsi'] = "http://www.w3.org/2001/XMLSchema-instance"
+      aiml[:'xsi:schemaLocation'] = "http://www.nttdocomo.com/aiml/schema/AIML.xsd"
       @document << aiml
       @element = aiml
     end
@@ -65,14 +65,14 @@ module XAIML
     private
 
     def append(object)
-      raise XAIML::DocumentError, 'Appended object must be element which Category or Topic' unless allowed_object?(object)
+      raise XAIML::DocumentError, "Appended object must be element which Category or Topic" unless allowed_object?(object)
 
       object = object.element if object.respond_to?(:element)
       @element << object
     end
 
     def unshift(object)
-      raise XAIML::DocumentError, 'Prepend object must be element which Category or Topic' unless allowed_object?(object)
+      raise XAIML::DocumentError, "Prepend object must be element which Category or Topic" unless allowed_object?(object)
 
       object = object.element if object.respond_to?(:element)
       @element.prepend_child(object)

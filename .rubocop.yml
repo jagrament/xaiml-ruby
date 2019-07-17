@@ -8,6 +8,8 @@ Naming/FileName:
     - "Gemfile"
     - "Rakefile"
     - "bin/*"
+StringLiterals:
+  EnforcedStyle: double_quotes
 Style/Documentation:
   Enabled: false
 Style/StringLiterals:
