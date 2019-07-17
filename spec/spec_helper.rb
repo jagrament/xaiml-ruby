@@ -1,8 +1,10 @@
-$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
-require "xaiml"
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
+require 'xaiml'
 
 def file_path(*paths)
-  File.expand_path(File.join(File.dirname(__FILE__), "fixtures", *paths))
+  File.expand_path(File.join(File.dirname(__FILE__), 'fixtures', *paths))
 end
 
 module XAIML

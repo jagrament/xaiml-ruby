@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module XAIML
   module Element
     class Category < Base

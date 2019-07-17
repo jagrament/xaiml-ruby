@@ -1,17 +1,19 @@
-require "xaiml/version"
-require "xaiml/exceptions"
-require "ox"
+# frozen_string_literal: true
+
+require 'xaiml/version'
+require 'xaiml/exceptions'
+require 'ox'
 
 module XAIML
-  require "xaiml/document"
-  require "xaiml/element"
-  require "xaiml/exceptions"
-  require "xaiml/version"
+  require 'xaiml/document'
+  require 'xaiml/element'
+  require 'xaiml/exceptions'
+  require 'xaiml/version'
 
   Ox.default_options = {
-      indent: -1,
-      mode:   :generic,
-      effort: :tolerant,
-      smart:  true
+    indent: -1,
+    mode: :generic,
+    effort: :tolerant,
+    smart: true
   }
 end

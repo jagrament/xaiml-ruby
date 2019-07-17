@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module XAIML
   module Element
-    autoload :Base, "xaiml/element/base"
+    autoload :Base, 'xaiml/element/base'
     class Arg       < Base; end
     class Calc      < Base; end
     class Command   < Base; end
@@ -25,10 +27,10 @@ module XAIML
     class Ut        < Base; end
     class Utterance < Base; end
 
-    autoload :Category, "xaiml/element/category"
-    autoload :Condition, "xaiml/element/condition"
-    autoload :ConditionalRandom, "xaiml/element/conditional_random"
-    autoload :Ext, "xaiml/element/ext"
-    autoload :Topic, "xaiml/element/topic"
+    autoload :Category, 'xaiml/element/category'
+    autoload :Condition, 'xaiml/element/condition'
+    autoload :ConditionalRandom, 'xaiml/element/conditional_random'
+    autoload :Ext, 'xaiml/element/ext'
+    autoload :Topic, 'xaiml/element/topic'
   end
 end
