@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 require:
   - rubocop-performance
   - rubocop-rspec
@@ -12,14 +14,4 @@ StringLiterals:
   EnforcedStyle: double_quotes
 Style/Documentation:
   Enabled: false
-Style/StringLiterals:
-  Enabled: false
-Metrics/LineLength:
-  Enabled: false
-Metrics/BlockLength:
-  Enabled: false
-Style/TrailingCommaInHashLiteral:
-  EnforcedStyleForMultiline: comma
-Style/TrailingCommaInArrayLiteral:
-  EnforcedStyleForMultiline: comma
   
