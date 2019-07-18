@@ -1,8 +1,11 @@
-inherit_from: .rubocop_todo.yml
+inherit_from: 
+  - .rubocop.ruby.yml
+  - .rubocop.rspec.yml
 
 require:
   - rubocop-performance
   - rubocop-rspec
+
 AllCops:
   TargetRubyVersion: 2.6
 Naming/FileName:
