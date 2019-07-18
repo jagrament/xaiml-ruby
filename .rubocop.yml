@@ -17,4 +17,5 @@ StringLiterals:
   EnforcedStyle: double_quotes
 Style/Documentation:
   Enabled: false
-  
+RSpec/DescribedClass:
+  Enabled: false 
