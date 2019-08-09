@@ -62,26 +62,26 @@ module XAIML
 
     private
 
-      def append(object)
-        raise XAIML::DocumentError, "Appended object must be element which Category or Topic" unless allowed_object?(object)
+    def append(object)
+      raise XAIML::DocumentError, "Appended object must be element which Category or Topic" unless allowed_object?(object)
 
-        object = object.element if object.respond_to?(:element)
-        @element << object
+      object = object.element if object.respond_to?(:element)
+      @element << object
+    end
+
+    def unshift(object)
+      raise XAIML::DocumentError, "Prepend object must be element which Category or Topic" unless allowed_object?(object)
+
+      object = object.element if object.respond_to?(:element)
+      @element.prepend_child(object)
+    end
+
+    class << self
+      def load_file(file)
+        instance = new
+        instance.document = Ox.load_file(file)
+        instance
       end
-
-      def unshift(object)
-        raise XAIML::DocumentError, "Prepend object must be element which Category or Topic" unless allowed_object?(object)
-
-        object = object.element if object.respond_to?(:element)
-        @element.prepend_child(object)
-      end
-
-      class << self
-        def load_file(file)
-          instance = new
-          instance.document = Ox.load_file(file)
-          instance
-        end
-      end
+    end
   end
 end

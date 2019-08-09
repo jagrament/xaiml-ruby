@@ -1,11 +1,8 @@
-inherit_from: 
-  - .rubocop.ruby.yml
-  - .rubocop.rspec.yml
+inherit_from: .rubocop_todo.yml
 
 require:
   - rubocop-performance
   - rubocop-rspec
-
 AllCops:
   TargetRubyVersion: 2.6
 Naming/FileName:
@@ -17,5 +14,4 @@ StringLiterals:
   EnforcedStyle: double_quotes
 Style/Documentation:
   Enabled: false
-RSpec/DescribedClass:
-  Enabled: false 
+  
