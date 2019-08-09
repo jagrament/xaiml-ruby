@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "xaiml/version"
 require "xaiml/exceptions"
 require "ox"

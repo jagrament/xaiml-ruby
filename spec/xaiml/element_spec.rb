@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require "spec_helper"
 RSpec.describe XAIML::Element do
-  describe "#FUNCTIONAL TEST" do
-    context "Check loading class successfully" do
+  describe "When initialize" do
+    context "when check loading class" do
       it "Arg" do
         expect { XAIML::Element::Arg.new }.not_to raise_error
       end

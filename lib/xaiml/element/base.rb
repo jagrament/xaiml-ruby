@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module XAIML
   module Element
     class Base < XAIML::Document
@@ -15,8 +17,7 @@ module XAIML
         Ox.dump(@element)
       end
 
-      def self.allowed_object
-      end
+      def self.allowed_object; end
     end
   end
 end

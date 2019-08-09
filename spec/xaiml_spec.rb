@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "spec_helper"
 
 describe XAIML do
@@ -6,7 +8,7 @@ describe XAIML do
   end
 
   it "Successfully loading XAIML" do
-    expect(XAIML).not_to be nil
+    expect(described_class).not_to be nil
   end
 
   it "Successfully loading XAIML:Document" do
