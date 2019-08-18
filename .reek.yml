@@ -1,6 +1,6 @@
 ---
-### enabled rules
 detectors:
+  ### enabled rules
   TooManyInstanceVariables:
     enabled: true
     exclude: []
@@ -37,7 +37,7 @@ detectors:
   SubclassedFromCoreClass:
     enabled: true
     exclude: []
-
+  
   ### unanabled rules
   Attribute:
     enabled: false
@@ -70,6 +70,9 @@ detectors:
     enabled: false
     exclude: []
   NilCheck:
+    enabled: false
+    exclude: []
+  MissingSafeMethod:
     enabled: false
     exclude: []
   RepeatedConditional:

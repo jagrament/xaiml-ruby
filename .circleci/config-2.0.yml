@@ -1,0 +1,160 @@
+# Orb 'circleci/ruby@0.1.0' resolved to 'circleci/ruby@0.1.0'
+# Orb 'sue445/ruby-orbs@volatile' resolved to 'sue445/ruby-orbs@1.4.3'
+# Orb 'amyroi/ruby-linter@volatile' resolved to 'amyroi/ruby-linter@1.0.0'
+version: 2
+jobs:
+  build:
+    working_directory: ~/xaiml-ruby
+    docker:
+    - image: circleci/ruby:2.6.3
+    environment:
+    - RAILS_ENV: test
+    - CIRCLE_TEST_REPORTS: /tmp/xaiml-ruby-test-results
+    steps:
+    - checkout
+    - run:
+        name: Install bundler
+        command: gem install bundler -v $BUNDLER_VERSION
+    - restore_cache:
+        keys:
+        - xaiml-ruby-bundle-{{ checksum "Gemfile.lock"  }}
+    - restore_cache:
+        keys:
+        - v1-bundle-{{ .Environment.CIRCLE_JOB }}-{{ checksum "Gemfile.lock" }}-{{
+          .Branch }}
+        - v1-bundle-{{ .Environment.CIRCLE_JOB }}-{{ checksum "Gemfile.lock" }}
+        - v1-bundle-{{ .Environment.CIRCLE_JOB }}
+        - v1-bundle
+    - run:
+        command: |
+          set -xe
+          bundle_install_args="--jobs=4 --retry=3 --path=vendor/bundle --gemfile=Gemfile"
+
+          bundle_install_args="$bundle_install_args --clean"
+
+          bundle_extra_args=""
+          if [ -n "$bundle_extra_args" ]; then
+            bundle_install_args="$bundle_install_args $bundle_extra_args"
+          fi
+
+          with_gemfile_lock="false"
+          with_gemfile_lock="true"
+
+          if [ $with_gemfile_lock == "true" ]; then
+            bundle install $bundle_install_args
+          else
+            run_bundle_install="true"
+
+            if [ $run_bundle_install == "true" ]; then
+              set +e
+              bundle install $bundle_install_args
+              ret=$?
+              set -e
+            else
+              ret=1
+            fi
+
+            # Retry with `bundle update` if `bundle install` is failed
+            if [ $ret -ne 0 ]; then
+              # NOTE: `.bundle/config` is not created after `bundle install` is failed
+              mkdir -p .bundle/
+              echo '---' > .bundle/config
+              echo 'BUNDLE_PATH: "vendor/bundle"' >> .bundle/config
+              bundle update --jobs=4
+            fi
+          fi
+        name: bundle install
+    - run:
+        command: |
+          set -xe
+
+          if [ "Gemfile" == "Gemfile" ]; then
+            gem install restore_bundled_with --no-document
+            restore-bundled-with
+          fi
+        name: restore-bundled-with
+    - save_cache:
+        key: v1-bundle-{{ .Environment.CIRCLE_JOB }}-{{ checksum "Gemfile.lock" }}-{{
+          .Branch }}
+        paths:
+        - vendor/bundle
+    - save_cache:
+        key: xaiml-ruby-bundle-{{ checksum "Gemfile.lock"  }}
+        paths:
+        - vendor/bundle
+    - run:
+        command: |
+          mkdir /tmp/test-results
+          TESTFILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+          bundle exec rspec $TESTFILES --profile 10 --format RspecJunitFormatter --out /tmp/test-results/rspec.xml --format progress
+    - store_test_results:
+        path: /tmp/test-results
+    - store_artifacts:
+        path: /tmp/test-results
+        destination: test-results
+    - run:
+        command: |
+          mkdir -p $CIRCLE_TEST_REPORTS
+          rubocop_reports_dir="$CIRCLE_TEST_REPORTS"/rubocop
+          mkdir -p $rubocop_reports_dir
+          bundle exec rubocop --require rubocop-rspec --out $rubocop_reports_dir/junit.xml --format progres
+        files: lib/**/*.rb spec/**/*.rb
+        name: Run Rubocop
+    - run:
+        command: bundle exec reek -s app lib config spec bin db
+        name: Run reek
+workflows:
+  version: 2
+  build:
+    jobs:
+    - build
+
+# Original config.yml file:
+# # Ruby CircleCI 2.1 configuration file
+# #
+# # Check https://circleci.com/docs/2.0/language-ruby/ for more details
+# 
+# version: 2.1
+# orbs:
+#   ruby: circleci/ruby@0.1.0
+#   ruby-orbs: sue445/ruby-orbs@volatile
+#   ruby-linter: amyroi/ruby-linter@volatile
+# 
+# executors:
+#   default:
+#     working_directory: ~/xaiml-ruby
+#     docker:
+#       - image: circleci/ruby:2.6.3
+# commands:
+#   setup_bundler:
+#     steps:
+#       - run:
+#           name: Install bundler
+#           command: gem install bundler -v $BUNDLER_VERSION
+# jobs:
+#   build:
+#     executor: default
+#     environment:
+#       RAILS_ENV: test
+#       CIRCLE_TEST_REPORTS: /tmp/xaiml-ruby-test-results
+#     steps:
+#       - checkout
+#       - setup_bundler
+#       - ruby/load-cache:
+#           key: xaiml-ruby-bundle
+#       - ruby-orbs/bundle-install:
+#           bundle_jobs: 4
+#           bundle_retry: 3
+#           bundle_clean: true
+#       - ruby/save-cache:
+#           key: xaiml-ruby-bundle
+#       - ruby/test
+#       - ruby-linter/rubocop:
+#           files: \"lib/**/*.rb spec/**/*.rb\"
+#           report_dir: $CIRCLE_TEST_REPORTS
+#       - ruby-linter/reek
+# workflows:
+#   version: 2
+#   build:
+#     jobs:
+#       - build
