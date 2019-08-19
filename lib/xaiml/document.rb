@@ -63,14 +63,18 @@ module XAIML
     private
 
       def append(object)
-        raise XAIML::DocumentError, "Appended object must be element which Category or Topic" unless allowed_object?(object)
+        unless allowed_object?(object)
+          raise XAIML::DocumentError, "Appended object must be element which Category or Topic"
+        end
 
         object = object.element if object.respond_to?(:element)
         @element << object
       end
 
       def unshift(object)
-        raise XAIML::DocumentError, "Prepend object must be element which Category or Topic" unless allowed_object?(object)
+        unless allowed_object?(object)
+          raise XAIML::DocumentError, "Prepend object must be element which Category or Topic"
+        end
 
         object = object.element if object.respond_to?(:element)
         @element.prepend_child(object)
