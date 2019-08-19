@@ -14,9 +14,9 @@ Gem::Specification.new do |spec|
   spec.description   = "xAIML parser library for ruby."
   spec.homepage      = "https://docs.xaiml.docomo-dialog.com/"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = `git ls-files -z`.split("\x0").reject {|f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables   = spec.files.grep(%r{^exe/}) {|f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   spec.add_dependency "ox", "~> 2.10.0"
