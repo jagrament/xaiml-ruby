@@ -1,4 +1,7 @@
-inherit_from: .rubocop_todo.yml
+inherit_from:
+  - .rubocop.ruby.yml
+  - .rubocop.rspec.yml
+  - .rubocop_todo.yml
 
 require:
   - rubocop-performance
@@ -14,4 +17,9 @@ StringLiterals:
   EnforcedStyle: double_quotes
 Style/Documentation:
   Enabled: false
-  
+RSpec/MultipleExpectations:
+  Max: 5
+RSpec/LeakyConstantDeclaration:
+  Enabled: false
+RSpec/DescribedClass:
+  EnforcedStyle: described_class  
