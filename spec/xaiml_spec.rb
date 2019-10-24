@@ -11,7 +11,7 @@ describe XAIML do
     expect(described_class).not_to be nil
   end
 
-  it "Successfully loading XAIML:Document" do
+  it "Successfully loading XAIML::Document" do
     expect(XAIML::Document).not_to be nil
   end
 
