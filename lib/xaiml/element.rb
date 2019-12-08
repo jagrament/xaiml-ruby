@@ -4,6 +4,7 @@ module XAIML
   module Element
     autoload :Base, "xaiml/element/base"
     class Arg         < Base; end
+    class Bot         < Base; end
     class BotId       < Base; end
     class Calc        < Base; end
     class Command     < Base; end
@@ -17,6 +18,7 @@ module XAIML
     class Pattern     < Base; end
     class Predstore   < Base; end
     class Set         < Base; end
+    class Sr          < Base; end
     class Srai        < Base; end
     class Sraix       < Base; end
     class SraixTopic  < Base; end
