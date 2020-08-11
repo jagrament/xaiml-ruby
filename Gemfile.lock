@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xaiml (0.1.4)
+    xaiml (0.1.5)
       ox (~> 2.10.0)
 
 GEM
@@ -92,4 +92,4 @@ DEPENDENCIES
   xaiml!
 
 BUNDLED WITH
-   2.0.2
+   2.1.4
