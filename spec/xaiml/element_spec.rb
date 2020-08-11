@@ -7,6 +7,12 @@ RSpec.describe XAIML::Element do
       it "Arg" do
         expect { XAIML::Element::Arg.new }.not_to raise_error
       end
+      it "Bot" do
+        expect { XAIML::Element::Bot.new }.not_to raise_error
+      end
+      it "BotId" do
+        expect { XAIML::Element::BotId.new }.not_to raise_error
+      end
       it "Calc" do
         expect { XAIML::Element::Calc.new }.not_to raise_error
       end
@@ -15,6 +21,12 @@ RSpec.describe XAIML::Element do
       end
       it "Command" do
         expect { XAIML::Element::Command.new }.not_to raise_error
+      end
+      it "Condition" do
+        expect { XAIML::Element::Condition.new }.not_to raise_error
+      end
+      it "ConditionalRandom" do
+        expect { XAIML::Element::ConditionalRandom.new }.not_to raise_error
       end
       it "Ext" do
         expect { XAIML::Element::Ext.new }.not_to raise_error
@@ -43,6 +55,9 @@ RSpec.describe XAIML::Element do
       it "Set " do
         expect { XAIML::Element::Set.new }.not_to raise_error
       end
+      it "Sr" do
+        expect { XAIML::Element::Sr.new }.not_to raise_error
+      end
       it "Srai" do
         expect { XAIML::Element::Srai.new }.not_to raise_error
       end
@@ -52,14 +67,23 @@ RSpec.describe XAIML::Element do
       it "Star" do
         expect { XAIML::Element::Star.new }.not_to raise_error
       end
-      it "Template  " do
+      it "Template" do
         expect { XAIML::Element::Template.new }.not_to raise_error
       end
-      it "Think     " do
+      it "Think" do
         expect { XAIML::Element::Think.new }.not_to raise_error
       end
-      it "Value     " do
+      it "Value" do
         expect { XAIML::Element::Value.new }.not_to raise_error
+      end
+      it "Ub" do
+        expect { XAIML::Element::Ub.new }.not_to raise_error
+      end
+      it "Ut" do
+        expect { XAIML::Element::Ut.new }.not_to raise_error
+      end
+      it "Utterance" do
+        expect { XAIML::Element::Utterance.new }.not_to raise_error
       end
     end
   end
