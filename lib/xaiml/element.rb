@@ -17,6 +17,7 @@ module XAIML
     class Name        < Base; end
     class Pattern     < Base; end
     class Predstore   < Base; end
+    class Random      < Base; end
     class Set         < Base; end
     class Sr          < Base; end
     class Srai        < Base; end
