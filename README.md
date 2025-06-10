@@ -4,8 +4,8 @@ xAIML is a parser library for xAIML written in Ruby.
 
 ## Supported Ruby Versions
 
-- Ruby >= 2.5, < 3.5
-- Tested with Ruby 3.4.4
+- Ruby >= 3.2
+- Tested with Ruby 3.2, 3.3, 3.4
 
 ## Installation
 
