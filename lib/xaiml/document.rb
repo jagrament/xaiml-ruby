@@ -2,8 +2,7 @@
 
 module XAIML
   class Document
-    attr_accessor :document
-    attr_accessor :element
+    attr_accessor :document, :element
 
     def self.allowed_object
       ["Element::Topic", "Element::Category"]
