@@ -52,7 +52,7 @@ RSpec.describe XAIML::Document do
       end
     end
 
-    context "when compare with test.aiml " do
+    context "when compare with test.aiml" do
       let(:pattern) { XAIML::Element::Pattern.new({ level: :surface }, "hello") }
       let(:template) { XAIML::Element::Template.new({}, ["hello", XAIML::Element::Command.new({}, "speaker=akari")]) }
 
